@@ -1,0 +1,1 @@
+web: gunicorn djavit.wsgi --log-file -
