@@ -30,6 +30,9 @@ SECRET_KEY = 'l37&-e2$poz5!hc5(uuiph+pfbfz8#63m-wx%4a749qwzfj57h'
 DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
+
+AUTH_USER_MODEL = 'base.User'
+
 # Application definition
 
 INSTALLED_APPS = [
