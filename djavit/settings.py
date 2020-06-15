@@ -141,6 +141,7 @@ if AWS_ACCESS_KEY_ID:  # pragma: no cover
     AWS_AUTO_CREATE_BUCKET = False
     AWS_QUERYSTRING_AUTH = True
 
+    COLLECTFAST_STRATEGY = "collectfast.strategies.boto3.Boto3Strategy"
     COLLECTFAST_ENABLED = True
 
     AWS_S3_CUSTOM_DOMAIN = None
