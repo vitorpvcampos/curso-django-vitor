@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'collectfast',
     'django.contrib.staticfiles',
-    'djavit.base'
+    'djavit.base',
+    'djavit.appetizers'
 ]
 
 MIDDLEWARE = [
