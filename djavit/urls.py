@@ -20,6 +20,7 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('djavit.base.urls')),
+    path('appetizers/', include('djavit.appetizers.urls')),
 ]
 
 if settings.DEBUG:
