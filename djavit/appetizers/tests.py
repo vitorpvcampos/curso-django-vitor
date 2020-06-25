@@ -14,7 +14,7 @@ def test_status_code(resp):
 
 
 def test_title_video(resp):
-    assert_contains(resp, '<h1>Appetizer Video: Test</h1>')
+    assert_contains(resp, '<h1 class="mt-4 mb-3">Appetizer Video: Test</h1>')
 
 
 def test_content_video(resp):
