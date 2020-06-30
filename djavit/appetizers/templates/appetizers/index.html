@@ -9,7 +9,7 @@
                 <h1 class="mt-4 mb-3">List of Aperitif Videos</h1>
                 <ol>
                     {% for video in videos %}
-                        <li>{{ video.title | default:"Missing title" }}</li>
+                        <li><a href="{{ video.get_absolute_url }}">{{ video.title | default:"Missing title" }}</a></li>
                     {% empty %}
                         <li>No appetizer video found</li>
                     {% endfor %}
