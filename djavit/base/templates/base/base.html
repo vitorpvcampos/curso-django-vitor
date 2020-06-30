@@ -39,30 +39,7 @@
 
 {% block body %}{% endblock body %}
 
-<footer class="main-footer mt-5 pt-4 text-light">
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <h3>Contact me</h3>
-                <address>
-                    +55 32 9 9990-9393
-                    <br/>
-                    <a href="mailto:vitor.campos@engenharia.ufjf.br"
-                       class="text-light">vitor.campos@engenharia.ufjf.br</a>
-                </address>
-            </div>
-        </div>
-    </div>
-    <div class="rights pb-4">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    {% now 'Y' %} Vitor Campos. All rights reserved.
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
+{% include 'base/footer.html' with email_contact='vitor.campos@engenharia.ufjf.br' only %}
 
 </body>
 </html>
