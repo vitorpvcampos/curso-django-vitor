@@ -1,0 +1,22 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %}Study of Django – Appetizers{% endblock title %}
+{% block description %}Page with all videos{% endblock description %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="mt-4 mb-3">List of Aperitif Videos</h1>
+                <ol>
+                    {% for video in videos %}
+                        <li>{{ video.title | default:"Missing title" }}</li>
+                    {% empty %}
+                        <li>No appetizer video found</li>
+                    {% endfor %}
+
+                </ol>
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}
