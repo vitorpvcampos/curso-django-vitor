@@ -1,11 +1,23 @@
 from django.shortcuts import render
+from django.urls import reverse
+
+
+class Video:
+    def __init__(self, slug, title, vimeo_id):
+        self.slug = slug
+        self.title = title
+        self.vimeo_id = vimeo_id
+
+    def get_absolute_url(self):
+        return reverse('appetizers:video', args=(self.slug,))
+
 
 videos = [
-    {'slug': 'test', 'title': 'Appetizer Video: Test', 'vimeo_id': 431952852},
-    {'slug': 'beach', 'title': 'Appetizer Video: Beach', 'vimeo_id': 434093274},
+    Video('test', 'Appetizer Video: Test', 431952852),
+    Video('beach', 'Appetizer Video: Beach', 434093274),
 ]
 
-videos_dct = {dct['slug']: dct for dct in videos}
+videos_dct = {v.slug: v for v in videos}
 
 
 def index(request):
