@@ -1,0 +1,15 @@
+version: "3.3"
+
+services:
+  database:
+    container_name: djavit_database
+    image: postgres:11.5
+    restart: always
+    volumes:
+      - ./.pgdata:/var/lib/postgresql/data
+    environment:
+      - LC_ALL=C.UTF-8
+      - POSTGRES_PASSWORD=djavit
+      - POSTGRES_USER=djavit
+    ports:
+      - 5434:5432
