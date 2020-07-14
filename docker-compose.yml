@@ -3,7 +3,7 @@ version: "3.3"
 services:
   database:
     container_name: djavit_database
-    image: postgres:11.5
+    image: postgres
     restart: always
     volumes:
       - ./.pgdata:/var/lib/postgresql/data
