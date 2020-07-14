@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 from djavit.appetizers.models import Video
 
@@ -15,5 +15,5 @@ def index(request):
 
 
 def video(request, slug):
-    video = Video.objects.get(slug=slug)
+    video = get_object_or_404(Video, slug=slug)
     return render(request, 'appetizers/video.html', context={'video': video})

@@ -1,21 +1,38 @@
 import pytest
 from django.urls import reverse
 
+from djavit.appetizers.models import Video
 from djavit.django_assertions import assert_contains
 
 
 @pytest.fixture
-def resp(client, db):
-    return client.get(reverse('appetizers:video', args=('test',)))
+def video(db):
+    v = Video(slug='test', title='Appetizer Video: Test', vimeo_id='431952852')
+    v.save()
+    return v
+
+
+@pytest.fixture
+def resp(client, video):
+    return client.get(reverse('appetizers:video', args=(video.slug,)))
+
+
+@pytest.fixture
+def resp_video_not_found(client, video):
+    return client.get(reverse('appetizers:video', args=(video.slug + 'video_not_found',)))
+
+
+def test_status_code_video_not_found(resp_video_not_found):
+    assert resp_video_not_found.status_code == 404
 
 
 def test_status_code(resp):
     assert resp.status_code == 200
 
 
-def test_title_video(resp):
-    assert_contains(resp, '<h1 class="mt-4 mb-3">Appetizer Video: Test</h1>')
+def test_title_video(resp, video):
+    assert_contains(resp, video.title)
 
 
-def test_content_video(resp):
-    assert_contains(resp, '<iframe src="https://player.vimeo.com/video/431952852"')
+def test_content_video(resp, video):
+    assert_contains(resp, f'<iframe src="https://player.vimeo.com/video/{video.vimeo_id}"')
