@@ -1,5 +1,6 @@
 import pytest
 from django.urls import reverse
+from model_bakery import baker
 
 from djavit.appetizers.models import Video
 from djavit.django_assertions import assert_contains
@@ -7,9 +8,7 @@ from djavit.django_assertions import assert_contains
 
 @pytest.fixture
 def video(db):
-    v = Video(slug='test', title='Appetizer Video: Test', vimeo_id='431952852')
-    v.save()
-    return v
+    return baker.make(Video)
 
 
 @pytest.fixture
