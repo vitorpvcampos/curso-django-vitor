@@ -21,6 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('djavit.base.urls')),
     path('appetizers/', include('djavit.appetizers.urls')),
+    path('modules/', include('djavit.modules.urls')),
 ]
 
 if settings.DEBUG:

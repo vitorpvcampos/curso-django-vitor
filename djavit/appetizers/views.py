@@ -2,15 +2,9 @@ from django.shortcuts import render, get_object_or_404
 
 from djavit.appetizers.models import Video
 
-videos = [
-    Video(slug='test', title='Appetizer Video: Test', vimeo_id='431952852'),
-    Video(slug='beach', title='Appetizer Video: Beach', vimeo_id='434093274'),
-]
-
-videos_dct = {v.slug: v for v in videos}
-
 
 def index(request):
+    videos = Video.objects.order_by('creation').all()
     return render(request, 'appetizers/index.html', context={'videos': videos})
 
 
