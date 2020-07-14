@@ -1,11 +1,18 @@
 import pytest
 from django.urls import reverse
+from model_bakery import baker
 
+from djavit.appetizers.models import Video
 from djavit.django_assertions import assert_contains
 
 
 @pytest.fixture
-def resp(client):
+def videos(db):
+    return baker.make(Video, 3)
+
+
+@pytest.fixture
+def resp(client, videos):
     return client.get(reverse('appetizers:index'))
 
 
@@ -13,24 +20,12 @@ def test_status_code(resp):
     assert resp.status_code == 200
 
 
-@pytest.mark.parametrize(
-    'title',
-    [
-        'Appetizer Video: Test',
-        'Appetizer Video: Beach'
-    ]
-)
-def test_title_video(resp, title):
-    assert_contains(resp, title)
+def test_title_video(resp, videos):
+    for video in videos:
+        assert_contains(resp, video.title)
 
 
-@pytest.mark.parametrize(
-    'slug',
-    [
-        'test',
-        'beach'
-    ]
-)
-def test_link_video(resp, slug):
-    video_link = reverse('appetizers:video', args=(slug,))
-    assert_contains(resp, f'href="{video_link}"')
+def test_link_video(resp, videos):
+    for video in videos:
+        video_link = reverse('appetizers:video', args=(video.slug,))
+        assert_contains(resp, f'href="{video_link}"')

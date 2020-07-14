@@ -46,7 +46,10 @@ INSTALLED_APPS = [
     'collectfast',
     'django.contrib.staticfiles',
     'djavit.base',
-    'djavit.appetizers'
+    'djavit.appetizers',
+    'djavit.modules',
+    'ordered_model',
+
 ]
 
 MIDDLEWARE = [
@@ -72,6 +75,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'djavit.modules.context_processors.list_modules',
             ],
         },
     },
