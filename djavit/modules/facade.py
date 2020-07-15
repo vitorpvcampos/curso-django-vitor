@@ -13,3 +13,7 @@ def list_ordered_modules() -> List[Module]:
 
 def find_module(slug: str) -> Module:
     return Module.objects.get(slug=slug)
+
+
+def list_ordered_module_classes(module: Module):
+    return list(module.classs_set.order_by('order').all())

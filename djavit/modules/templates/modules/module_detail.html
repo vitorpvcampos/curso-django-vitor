@@ -13,6 +13,12 @@
                     <dt>Description</dt>
                     <dd>{{ module.description }}</dd>
                 </dl>
+                <h2>Classes</h2>
+                <ol>
+                    {% for classs in classes %}
+                        <li>{{ classs.title }}</li>
+                    {% endfor %}
+                </ol>
             </div>
         </div>
     </div>
