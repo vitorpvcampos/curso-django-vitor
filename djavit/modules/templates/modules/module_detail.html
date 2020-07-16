@@ -16,7 +16,7 @@
                 <h2>Classes</h2>
                 <ol>
                     {% for classs in classes %}
-                        <li>{{ classs.title }}</li>
+                        <li><a href="{{ classs.get_absolute_url }}">{{ classs.title }}</a></li>
                     {% endfor %}
                 </ol>
             </div>

@@ -37,3 +37,8 @@ def test_public(resp, module: Module):
 def test_classes_titles(resp, classes):
     for classs in classes:
         assert_contains(resp, classs.title)
+
+
+def test_classes_links(resp, classes):
+    for classs in classes:
+        assert_contains(resp, classs.get_absolute_url())
