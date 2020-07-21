@@ -1,0 +1,17 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %}Study of Django – Appetizer{% endblock title %}
+{% block description %}Page with classs{% endblock description %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="mt-4 mb-3">{{ classs.title |default:"Title missing" }}</h1>
+                <iframe src="https://player.vimeo.com/video/{{ classs.vimeo_id }}" width="640" height="360"
+                        frameborder="0"
+                        allow="autoplay; fullscreen" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}
