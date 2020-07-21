@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'djavit.appetizers',
     'djavit.modules',
     'ordered_model',
+    'django_extensions',
 
 ]
 

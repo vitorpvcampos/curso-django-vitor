@@ -10,4 +10,5 @@ def detail(request, slug):
 
 
 def classs(request, slug):
-    pass
+    classs = facade.find_classs(slug)
+    return render(request, 'modules/classs_detail.html', {'classs': classs})

@@ -1,6 +1,6 @@
 from typing import List
 
-from djavit.modules.models import Module
+from djavit.modules.models import Module, Classs
 
 
 def list_ordered_modules() -> List[Module]:
@@ -17,3 +17,7 @@ def find_module(slug: str) -> Module:
 
 def list_ordered_module_classes(module: Module):
     return list(module.classs_set.order_by('order').all())
+
+
+def find_classs(slug):
+    return Classs.objects.get(slug=slug)
