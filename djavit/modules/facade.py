@@ -20,4 +20,4 @@ def list_ordered_module_classes(module: Module):
 
 
 def find_classs(slug):
-    return Classs.objects.get(slug=slug)
+    return Classs.objects.select_related('module').get(slug=slug)

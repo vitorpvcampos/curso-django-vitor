@@ -3,6 +3,13 @@
 {% block title %}Study of Django – Appetizer{% endblock title %}
 {% block description %}Page with classs{% endblock description %}
 {% block body %}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ classs.module.get_absolute_url }}">{{ classs.module.title }}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ classs.title }}</li>
+        </ol>
+    </nav>
     <div class="container">
         <div class="row">
             <div class="col-md-12">

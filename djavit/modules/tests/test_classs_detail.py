@@ -28,3 +28,7 @@ def test_title(resp, classs: Classs):
 
 def test_vimeo(resp, classs: Classs):
     assert_contains(resp, f'src="https://player.vimeo.com/video/{classs.vimeo_id}"')
+
+
+def test_modulo_breadcrumb(resp, module: Module):
+    assert_contains(resp, f'<li class="breadcrumb-item"><a href="{module.get_absolute_url()}">{module.title}</a></li>')
