@@ -1,0 +1,27 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %}Teams Index{% endblock title %}
+{% block description %}Page with teams details {{ module.title }}{% endblock description %}
+{% block body %}
+    <div class="container">
+        {% for module in modules %}
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="mt-4 mb-3">{{ module.title }}</h1>
+                    <dl>
+                        <dt>Public</dt>
+                        <dd>{{ module.public }}</dd>
+                        <dt>Description</dt>
+                        <dd>{{ module.description }}</dd>
+                    </dl>
+                    <h2>Classes</h2>
+                    <ol>
+                        {% for classs in module.classes %}
+                            <li><a href="{{ classs.get_absolute_url }}">{{ classs.title }}</a></li>
+                        {% endfor %}
+                    </ol>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock body %}
