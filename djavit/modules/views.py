@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
 from djavit.modules import facade
@@ -14,6 +15,7 @@ def index(request):
     return render(request, 'modules/index.html', ctx)
 
 
+@login_required
 def classs(request, slug):
     classs = facade.find_classs(slug)
     return render(request, 'modules/classs_detail.html', {'classs': classs})
