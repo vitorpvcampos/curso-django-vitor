@@ -9,6 +9,11 @@ def detail(request, slug):
     return render(request, 'modules/module_detail.html', {'module': module, 'classes': classes})
 
 
+def index(request):
+    ctx = {'modules': facade.list_modules_with_classes()}
+    return render(request, 'modules/index.html', ctx)
+
+
 def classs(request, slug):
     classs = facade.find_classs(slug)
     return render(request, 'modules/classs_detail.html', {'classs': classs})
